@@ -7,7 +7,7 @@
     <string name="wrong">Guess wrong words: %1$s</string>
     <string name="guess_et">Guess a letter</string>
     <string name="guess_one">You picked this letter</string>
-    <string name="guest">Guest</string>
+    <string name="guess">Guess</string>
     <string name="win">You WIN! with word %1$s</string>
     <string name="lost">You LOST! secrete word is %1$s</string>
     <string name="new_game">New Game</string>
