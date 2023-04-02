@@ -1,4 +1,4 @@
-package com.nguyencodervn.klad10_viewmodel
+package com.nguyencodervn.klad10_guesswordgame
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

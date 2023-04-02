@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.nguyencodervn.klad10_viewmodel'
+    namespace 'com.nguyencodervn.klad10_guesswordgame'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.nguyencodervn.klad10_viewmodel"
+        applicationId "com.nguyencodervn.klad10_guesswordgame"
         minSdk 28
         targetSdk 33
         versionCode 1

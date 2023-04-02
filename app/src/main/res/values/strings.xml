@@ -1,5 +1,17 @@
 <resources>
-    <string name="app_name">KLAD10_ViewModel</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Guess Word Game</string>
+    <string name="en">English</string>
+    <string name="vn">Vietnam</string>
+    <string name="display">______</string>
+    <string name="live">You have %1$s live left</string>
+    <string name="wrong">Guess wrong words: %1$s</string>
+    <string name="guess_et">Guess a letter</string>
+    <string name="guess_one">You picked this letter</string>
+    <string name="guest">Guest</string>
+    <string name="win">You WIN! with word %1$s</string>
+    <string name="lost">You LOST! secrete word is %1$s</string>
+    <string name="new_game">New Game</string>
+    <string name="result">Result</string>
+    <string name="game_fragment">Hello game fragment</string>
+    <string name="result_fragment">Hello result fragment</string>
 </resources>
