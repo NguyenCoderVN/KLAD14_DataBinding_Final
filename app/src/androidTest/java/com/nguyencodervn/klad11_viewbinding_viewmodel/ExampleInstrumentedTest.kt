@@ -1,4 +1,4 @@
-package com.nguyencodervn.klad10_guesswordgame
+package com.nguyencodervn.klad11_viewbinding_viewmodel
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
