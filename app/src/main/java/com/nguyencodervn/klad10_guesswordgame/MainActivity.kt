@@ -5,7 +5,6 @@ import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var materialToolbar: MaterialToolbar
 
@@ -20,5 +19,4 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_option, menu)
         return super.onCreateOptionsMenu(menu)
     }
-
 }
