@@ -1,18 +1,18 @@
 package com.nguyencodervn.klad10_guesswordgame
 
-import android.content.SharedPreferences
-import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.core.os.LocaleListCompat
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.badge.BadgeUtils
 import com.google.android.material.badge.ExperimentalBadgeUtils
-import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var materialToolbar: MaterialToolbar
@@ -23,17 +23,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadLocale()
+        Log.i("MYTAG", "onCreate: ")
         setContentView(R.layout.activity_main)
         materialToolbar = findViewById(R.id.materialToolbar)
         setSupportActionBar(materialToolbar)
-
     }
+
 
     @ExperimentalBadgeUtils
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
         initBadges()
-        if (defaultLanguage == "en") enBadge.isVisible = true else vnBadge.isVisible = true
+        if (defaultLanguage == "en") enBadge.isVisible =
+            true else vnBadge.isVisible = true
 
         menuInflater.inflate(R.menu.menu_option, menu)
         return super.onCreateOptionsMenu(menu)
@@ -80,28 +81,28 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setLocale(language: String) {
-        val locale = Locale(language)
-        Locale.setDefault(locale)
-        val configuration = Configuration()
-        configuration.setLocale(locale)
-        baseContext.resources.updateConfiguration(
-            configuration, baseContext.resources.displayMetrics
-        )
-        val sharedPreferences = getSharedPreferences(
-            "Setting", MODE_PRIVATE
-        )
-        val editor: SharedPreferences.Editor = sharedPreferences.edit()
-        editor.putString("My_Lang", language)
-        editor.apply()
+    private fun setLocale(lang: String) {
+
+//        val locale = Locale(lang)
+//        Locale.setDefault(locale)
+//        val config = resources.configuration
+//        config.setLocale(locale)
+//
+//        baseContext.resources.updateConfiguration(
+//            config, baseContext.resources.displayMetrics
+//        )
+
+        val appLocale = LocaleListCompat.forLanguageTags(lang)
+        AppCompatDelegate.setApplicationLocales(appLocale)
+
+        val shared = getSharedPreferences("Setting", MODE_PRIVATE)
+        shared.edit().putString("Lang", lang).apply()
     }
 
     private fun loadLocale() {
-        val sharedPreferences = getSharedPreferences(
-            "Setting", MODE_PRIVATE
-        )
-        val language: String = sharedPreferences.getString("My_Lang", "") ?: ""
-        defaultLanguage = language
-        setLocale(language)
+        val shared = getSharedPreferences("Setting", MODE_PRIVATE)
+        val lang = shared.getString("Lang", "") ?: ""
+        defaultLanguage = lang
+        setLocale(lang)
     }
 }
