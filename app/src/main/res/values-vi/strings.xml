@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Trò chơi đoán chữ</string>
+    <string name="en">Tiếng Anh</string>
+    <string name="vn">Tiếng Việt</string>
+    <string name="display">_____</string>
+    <string name="live">Bạn còn %1$s lượt</string>
+    <string name="wrong">Các từ đoán sai: %1$s</string>
+    <string name="guess_et">Đoán một từ</string>
+    <string name="guess_one">Bạn đã toán từ  %1$s</string>
+    <string name="guess">Đoán</string>
+    <string name="win">Bạn đã thắng với từ %1$s</string>
+    <string name="lost">Bạn đã thua, từ bí mật là %1$s</string>
+    <string name="new_game">Trò chơi mới</string>
+    <string name="result">Kết quả</string>
+    <string name="game_fragment">Xin chào Trò chơi</string>
+    <string name="result_fragment">Xin chào Kết Quả</string>
+    <string-array name="list_word">
+        <item>Android</item>
+        <item>Java</item>
+        <item>Kotlin</item>
+        <item>Html</item>
+        <item>Php</item>
+        <item>Python</item>
+        <item>Ruby</item>
+    </string-array>
+    <string name="english">Tiếng Anh</string>
+    <string name="vietnam">Tiếng Việt</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/englishMn"
+        android:icon="@drawable/en"
+        android:title="@string/english"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/vietnamMn"
+        android:icon="@drawable/vn"
+        android:title="@string/vietnam"
+        app:showAsAction="ifRoom" />
+</menu>

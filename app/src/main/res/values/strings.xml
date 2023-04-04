@@ -6,7 +6,7 @@
     <string name="live">You have %1$s live left</string>
     <string name="wrong">Guess wrong words: %1$s</string>
     <string name="guess_et">Guess a letter</string>
-    <string name="guess_one">You picked this letter</string>
+    <string name="guess_one">You have guessed the letter  %1$s</string>
     <string name="guess">Guess</string>
     <string name="win">You WIN! with word %1$s</string>
     <string name="lost">You LOST! secrete word is %1$s</string>
@@ -14,4 +14,15 @@
     <string name="result">Result</string>
     <string name="game_fragment">Hello game fragment</string>
     <string name="result_fragment">Hello result fragment</string>
+    <string name="english">English</string>
+    <string name="vietnam">Vietnam</string>
+    <string-array name="list_word">
+        <item>Android</item>
+        <item>Java</item>
+        <item>Kotlin</item>
+        <item>Html</item>
+        <item>Php</item>
+        <item>Python</item>
+        <item>Ruby</item>
+    </string-array>
 </resources>
