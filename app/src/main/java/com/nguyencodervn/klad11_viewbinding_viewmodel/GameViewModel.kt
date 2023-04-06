@@ -5,9 +5,6 @@ import androidx.lifecycle.ViewModel
 class GameViewModel(start : Int) : ViewModel() {
     private var words = arrayOf("Php","Java")
     var guessWord = words.random().uppercase()
-//    words = requireActivity().resources.getStringArray(
-//    R.array.list_word
-//    )
 
     var display = ""
     var live = start

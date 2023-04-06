@@ -5,13 +5,9 @@ import android.text.InputFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.nguyencodervn.klad11_viewbinding_viewmodel.databinding.FragmentGameBinding
 
@@ -19,24 +15,34 @@ class GameFragment : Fragment(R.layout.fragment_game) {
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
 
-    // Cách 01
-    //private lateinit var viewModel: GameViewModel
+//     Cách 01
+//    private lateinit var viewModel: GameViewModel
 
-    //Cách 02
+//    Cách 02
 //    private val viewModel: GameViewModel by lazy {
 //        val viewModelFactory = GameViewModelFactory(7)
 //        ViewModelProvider(this, viewModelFactory)[GameViewModel::class.java]
 //    }
+//     Android ViewModel
+//    private val viewModel: GameAndroidViewModel by lazy {
+//        ViewModelProvider(this)[GameAndroidViewModel::class.java]
+//    }
 
-    // Cách 03
-    // Chú ý thêm implementation 'androidx.fragment:fragment-ktx:1.5.6'
-    // private val viewModel : GameViewModel by viewModels()
+    //     Cách 03
+//     Chú ý thêm implementation 'androidx.fragment:fragment-ktx:1.5.6'
+//     private val viewModel : GameViewModel by viewModels()
+//    private val viewModel: GameViewModel by viewModels {
+//        GameViewModelFactory(7)
+//    }
+//     Android ViewModel
+//    private val viewModel: GameAndroidViewModel by viewModels()
+//
 
-    // Android ViewModel
-        private val viewModel: GameAndroidViewModel by lazy {
-        ViewModelProvider(this)[GameAndroidViewModel::class.java]
+    //    Cách 04 activityViewModels Nếu bạn muốn ViewModel tồn tại
+//    các Fragment khác nhau trong cùng 1 activity
+    private val viewModel: GameAndroidViewModelWithPara by activityViewModels {
+        GameAndroidViewModelWithParaFactory(3, requireActivity().application)
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,

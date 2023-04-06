@@ -3,12 +3,12 @@ package com.nguyencodervn.klad11_viewbinding_viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 
-class GameAndroidViewModel(app: Application) : AndroidViewModel(app) {
+class GameAndroidViewModelWithPara(start: Int, app: Application) : AndroidViewModel(app) {
     private var words = app.resources.getStringArray(R.array.list_word)
     var guessWord = words.random().uppercase()
 
     var display = ""
-    var live = 8
+    var live = start
     var wrong = ""
     private var correct = ""
 
