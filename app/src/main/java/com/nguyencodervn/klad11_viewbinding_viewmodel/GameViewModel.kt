@@ -1,9 +1,10 @@
 package com.nguyencodervn.klad11_viewbinding_viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 
-class GameViewModel(start : Int) : ViewModel() {
-    private var words = arrayOf("Php","Java")
+class GameViewModel(start: Int) : ViewModel() {
+    private var words = arrayOf("Php", "Java")
     var guessWord = words.random().uppercase()
 
     var display = ""
@@ -35,5 +36,10 @@ class GameViewModel(start : Int) : ViewModel() {
             }
 
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.i("GameViewModel", "GameViewModel destroyed!")
     }
 }

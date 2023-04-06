@@ -1,6 +1,7 @@
 package com.nguyencodervn.klad11_viewbinding_viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 
 class GameAndroidViewModelWithPara(start: Int, app: Application) : AndroidViewModel(app) {
@@ -35,5 +36,10 @@ class GameAndroidViewModelWithPara(start: Int, app: Application) : AndroidViewMo
                 updateDisplay()
             }
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.i("GameAndroidViewModelWithPara", "GameAndroidViewModelWithPara destroyed!")
     }
 }

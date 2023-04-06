@@ -83,6 +83,10 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         return view
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
     private fun updateUI() {
         binding.apply {

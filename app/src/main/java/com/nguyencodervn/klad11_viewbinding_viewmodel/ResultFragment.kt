@@ -13,7 +13,7 @@ import com.nguyencodervn.klad11_viewbinding_viewmodel.databinding.FragmentResult
 class ResultFragment : Fragment(R.layout.fragment_result) {
     private var _binding: FragmentResultBinding? = null
     private val binding get() = _binding!!
-    private val args : ResultFragmentArgs by navArgs()
+    private val args: ResultFragmentArgs by navArgs()
 //    private val viewModel: GameAndroidViewModelWithPara by activityViewModels {
 //        GameAndroidViewModelWithParaFactory(3, requireActivity().application)
 //    }
@@ -28,6 +28,11 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
             inflater, container, false
         )
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
