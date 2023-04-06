@@ -11,9 +11,11 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.badge.BadgeUtils
 import com.google.android.material.badge.ExperimentalBadgeUtils
+import com.nguyencodervn.klad11_viewbinding_viewmodel.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var materialToolbar: MaterialToolbar
+    private lateinit var binding: ActivityMainBinding
+
     private lateinit var enBadge: BadgeDrawable
     private lateinit var vnBadge: BadgeDrawable
     private lateinit var storedLang: String
@@ -22,9 +24,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         // Note Load before setContentView
         loadLang()
-        setContentView(R.layout.activity_main)
-        materialToolbar = findViewById(R.id.materialToolbar)
-        setSupportActionBar(materialToolbar)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.materialToolbar)
     }
 
     @ExperimentalBadgeUtils
@@ -42,12 +45,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         BadgeUtils.attachBadgeDrawable(
-            enBadge, materialToolbar,
+            enBadge, binding.materialToolbar,
             R.id.englishMn
         )
 
         BadgeUtils.attachBadgeDrawable(
-            vnBadge, materialToolbar,
+            vnBadge, binding.materialToolbar,
             R.id.vietnamMn
         )
 
