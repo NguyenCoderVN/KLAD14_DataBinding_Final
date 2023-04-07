@@ -1,10 +1,11 @@
-package com.nguyencodervn.klad11_viewbinding_viewmodel
+package com.nguyencodervn.klad12_savedstatehandle
 
+import android.app.Application
 import android.util.Log
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.AndroidViewModel
 
-class GameViewModel(start: Int) : ViewModel() {
-    private var words = arrayOf("Php", "Java")
+class GameAndroidViewModelWithPara(start: Int, app: Application) : AndroidViewModel(app) {
+    private var words = app.resources.getStringArray(R.array.list_word)
     var guessWord = words.random().uppercase()
 
     var display = ""
@@ -34,12 +35,11 @@ class GameViewModel(start: Int) : ViewModel() {
                 }
                 updateDisplay()
             }
-
         }
     }
 
     override fun onCleared() {
         super.onCleared()
-        Log.i("GameViewModel", "GameViewModel destroyed!")
+        Log.i("GameAndroidViewModelWithPara", "GameAndroidViewModelWithPara destroyed!")
     }
 }

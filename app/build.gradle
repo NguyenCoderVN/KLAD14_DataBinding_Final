@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.nguyencodervn.klad11_viewbinding_viewmodel'
+    namespace 'com.nguyencodervn.klad12_savedstatehandle'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.nguyencodervn.klad11_viewbinding_viewmodel"
+        applicationId "com.nguyencodervn.klad12_savedstatehandle"
         minSdk 28
         targetSdk 33
         versionCode 1

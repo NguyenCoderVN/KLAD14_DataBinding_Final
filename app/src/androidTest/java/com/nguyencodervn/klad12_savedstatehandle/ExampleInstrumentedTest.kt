@@ -1,4 +1,4 @@
-package com.nguyencodervn.klad11_viewbinding_viewmodel
+package com.nguyencodervn.klad12_savedstatehandle
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

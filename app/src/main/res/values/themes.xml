@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.KLAD11_Viewbinding_Viewmodel" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.KLAD12_SavedStateHandle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/deep_purple_500</item>
         <item name="colorPrimaryVariant">@color/deep_purple_700</item>
