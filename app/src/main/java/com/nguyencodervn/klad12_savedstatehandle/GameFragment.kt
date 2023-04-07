@@ -31,8 +31,8 @@ class GameFragment : Fragment(R.layout.fragment_game) {
 //    Cách 03
 //     Chú ý thêm implementation 'androidx.fragment:fragment-ktx:1.5.6'
 //     private val viewModel : GameViewModel by viewModels()
-    private val viewModel: GameViewModel by viewModels {
-        GameViewModelFactory(3)
+    private val viewModel: GameViewModelSavedState by viewModels {
+        GameViewModelSavedStateFactory(5)
     }
 //     Android ViewModel
 //    private val viewModel: GameAndroidViewModel by viewModels()
