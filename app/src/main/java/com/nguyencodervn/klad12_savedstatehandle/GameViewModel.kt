@@ -5,12 +5,20 @@ import androidx.lifecycle.ViewModel
 
 class GameViewModel(start: Int) : ViewModel() {
     private var words = arrayOf("Php", "Java")
-    var guessWord = words.random().uppercase()
 
-    var display = ""
-    var live = start
-    var wrong = ""
-    private var correct = ""
+    var guessWord : String
+    var display : String
+    var live : Int
+    var wrong : String
+    private var correct : String
+
+    init{
+        guessWord = words.random().uppercase()
+        display = ""
+        live = start
+        wrong = ""
+        correct = ""
+    }
 
     fun updateDisplay() {
         var str = ""
