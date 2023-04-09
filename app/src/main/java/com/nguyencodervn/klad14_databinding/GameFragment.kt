@@ -25,10 +25,10 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         _binding = FragmentGameBinding.inflate(
             inflater, container, false
         )
-
-        val view = binding.root
+        val view = binding.root        
+        
         viewModel.updateDisplay()
-
+        
         viewModel.display.observe(viewLifecycleOwner) { display ->
             binding.displayTv.text = display
         }
@@ -62,8 +62,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         binding.apply {
             guessEt.filters = guessEt.filters + InputFilter.AllCaps()
             guessBt.setOnClickListener {
-                val letter = guessEt.text.toString()
-                viewModel.checkGuessWord(letter)
+                viewModel.checkGuessWord(guessEt.text.toString())
                 guessEt.text = null
             }
         }
