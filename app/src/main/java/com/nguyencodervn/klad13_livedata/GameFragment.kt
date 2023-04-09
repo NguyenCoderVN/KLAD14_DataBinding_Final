@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.nguyencodervn.klad13_livedata.databinding.FragmentGameBinding
 
@@ -27,8 +28,18 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         )
 
         val view = binding.root
+        viewModel.display.observe(viewLifecycleOwner) { display ->
+            binding.displayTv.text = display
+            binding.guessEt.text = null
+        }
+        viewModel.live.observe(viewLifecycleOwner) { live ->
+            binding.liveTv.text = getString(R.string.live, live.toString())
+        }
+        viewModel.wrong.observe(viewLifecycleOwner) { wrong ->
+            binding.wrongTv.text = getString(R.string.wrong, wrong)
+        }
         viewModel.updateDisplay()
-        updateUI()
+
         binding.apply {
             viewModel.apply {
 
@@ -38,10 +49,10 @@ class GameFragment : Fragment(R.layout.fragment_game) {
                     val letter = guessEt.text.toString()
                     checkGuessWord(letter)
                     var transferTxt = ""
-                    if (live == 0) {
+                    if (live.value == 0) {
                         transferTxt = getString(R.string.lost, guessWord)
                     }
-                    if (display == guessWord) {
+                    if (display.value == guessWord) {
                         transferTxt = getString(R.string.win, guessWord)
                     }
                     if (transferTxt.isNotBlank()) {
@@ -49,7 +60,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
                             .actionGameFragmentToResultFragment(transferTxt)
                         findNavController().navigate(action)
                     }
-                    updateUI()
+
                 }
             }
         }
@@ -59,16 +70,5 @@ class GameFragment : Fragment(R.layout.fragment_game) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun updateUI() {
-        binding.apply {
-            viewModel.apply {
-                displayTv.text = display
-                liveTv.text = getString(R.string.live, live.toString())
-                wrongTv.text = getString(R.string.wrong, wrong)
-                guessEt.text = null
-            }
-        }
     }
 }
