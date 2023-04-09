@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.nguyencodervn.klad12_savedstatehandle'
+    namespace 'com.nguyencodervn.klad13_livedata'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.nguyencodervn.klad12_savedstatehandle"
+        applicationId "com.nguyencodervn.klad13_livedata"
         minSdk 28
         targetSdk 33
         versionCode 1

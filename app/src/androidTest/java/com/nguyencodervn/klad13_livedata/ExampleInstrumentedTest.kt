@@ -1,4 +1,4 @@
-package com.nguyencodervn.klad12_savedstatehandle
+package com.nguyencodervn.klad13_livedata
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,4 +1,4 @@
-package com.nguyencodervn.klad12_savedstatehandle
+package com.nguyencodervn.klad13_livedata
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.nguyencodervn.klad12_savedstatehandle.databinding.FragmentResultBinding
+import com.nguyencodervn.klad13_livedata.databinding.FragmentResultBinding
 
 class ResultFragment : Fragment(R.layout.fragment_result) {
     private var _binding: FragmentResultBinding? = null
