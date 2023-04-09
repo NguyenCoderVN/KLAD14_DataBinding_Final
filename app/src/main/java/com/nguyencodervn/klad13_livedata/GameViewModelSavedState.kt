@@ -14,19 +14,27 @@ class GameViewModelSavedState(
 ) : ViewModel() {
     private var words = arrayOf("Php", "Java")
 
-    var guessWord: String
+    private var guessWord: String
 
-    private val _display = MutableLiveData<String>() // Backing Field
+    private val _display = MutableLiveData("") // Backing Field
     val display: LiveData<String> // Backing Property
         get() = _display
 
-    private val _live = MutableLiveData<Int>()
+    private val _live = MutableLiveData(0)
     val live: LiveData<Int>
         get() = _live
 
-    private val _wrong = MutableLiveData<String>()
+    private val _wrong = MutableLiveData("")
     val wrong: LiveData<String>
         get() = _wrong
+
+    private val _win = MutableLiveData("")
+    val win: LiveData<String>
+        get() = _win
+
+    private val _lost = MutableLiveData("")
+    val lost: LiveData<String>
+        get() = _lost
 
     private var correct: String
 
@@ -38,12 +46,16 @@ class GameViewModelSavedState(
             _display.value = saveState.getString("display", "")
             _live.value = saveState.getInt("live", start)
             _wrong.value = saveState.getString("wrong", "")
+            _win.value = saveState.getString("win", "")
+            _lost.value = saveState.getString("lost", "")
             correct = saveState.getString("correct", "")
         } else {
             guessWord = words.random().uppercase()
             _display.value = ""
             _live.value = start
             _wrong.value = ""
+            _win.value = ""
+            _lost.value = ""
             correct = ""
 
         }
@@ -54,6 +66,8 @@ class GameViewModelSavedState(
                 "display" to _display.value,
                 "live:" to _live.value,
                 "wrong" to _wrong.value,
+                "win" to _win.value,
+                "lost" to _lost.value,
                 "correct" to correct,
             )
             bundle
@@ -72,7 +86,7 @@ class GameViewModelSavedState(
     fun checkGuessWord(letter: String) {
         if (letter.isNotEmpty()) {
             if (!correct.contains(letter) &&
-                !_wrong.value?.contains(letter)!!
+                !_wrong.value.toString().contains(letter)
             ) {
                 if (guessWord.contains(letter)) {
                     correct += letter
@@ -83,6 +97,13 @@ class GameViewModelSavedState(
                 updateDisplay()
             }
 
+        }
+
+        if (_live.value == 0) {
+            _lost.value = guessWord
+        }
+        if (_display.value == guessWord) {
+            _win.value = guessWord
         }
     }
 

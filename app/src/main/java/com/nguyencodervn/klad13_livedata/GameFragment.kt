@@ -28,40 +28,44 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         )
 
         val view = binding.root
+        viewModel.updateDisplay()
+
         viewModel.display.observe(viewLifecycleOwner) { display ->
             binding.displayTv.text = display
-            binding.guessEt.text = null
         }
+
         viewModel.live.observe(viewLifecycleOwner) { live ->
             binding.liveTv.text = getString(R.string.live, live.toString())
         }
+
         viewModel.wrong.observe(viewLifecycleOwner) { wrong ->
             binding.wrongTv.text = getString(R.string.wrong, wrong)
         }
-        viewModel.updateDisplay()
+
+        viewModel.win.observe(viewLifecycleOwner) {
+            if (it != "") {
+                val txt = getString(R.string.win, it)
+                val action = GameFragmentDirections
+                    .actionGameFragmentToResultFragment(txt)
+                findNavController().navigate(action)
+            }
+        }
+
+        viewModel.lost.observe(viewLifecycleOwner) {
+            if (it != "") {
+                val txt = getString(R.string.lost, it)
+                val action = GameFragmentDirections
+                    .actionGameFragmentToResultFragment(txt)
+                findNavController().navigate(action)
+            }
+        }
 
         binding.apply {
-            viewModel.apply {
-
-                guessEt.filters = guessEt.filters + InputFilter.AllCaps()
-
-                guessBt.setOnClickListener {
-                    val letter = guessEt.text.toString()
-                    checkGuessWord(letter)
-                    var transferTxt = ""
-                    if (live.value == 0) {
-                        transferTxt = getString(R.string.lost, guessWord)
-                    }
-                    if (display.value == guessWord) {
-                        transferTxt = getString(R.string.win, guessWord)
-                    }
-                    if (transferTxt.isNotBlank()) {
-                        val action = GameFragmentDirections
-                            .actionGameFragmentToResultFragment(transferTxt)
-                        findNavController().navigate(action)
-                    }
-
-                }
+            guessEt.filters = guessEt.filters + InputFilter.AllCaps()
+            guessBt.setOnClickListener {
+                val letter = guessEt.text.toString()
+                viewModel.checkGuessWord(letter)
+                guessEt.text = null
             }
         }
         return view
