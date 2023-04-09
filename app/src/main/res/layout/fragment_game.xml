@@ -1,58 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/amber_100"
-    android:orientation="vertical"
-    tools:context=".GameFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.nguyencodervn.klad14_databinding.GameViewModelSavedState" />
 
-    <TextView
-        android:id="@+id/displayTv"
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:letterSpacing="0.2"
-        android:text="@string/display"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:background="@color/amber_100"
+        android:orientation="vertical"
+        tools:context=".GameFragment">
 
-    <TextView
-        android:id="@+id/liveTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="@string/live"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/wrongTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="@string/wrong"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/displayTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:letterSpacing="0.2"
+            android:text="@{viewModel.display}"
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/guessEt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="@string/guess_et"
-        android:maxLength="1"
-        android:textSize="20sp"
-        tools:ignore="Autofill,TextFields" />
+        <TextView
+            android:id="@+id/liveTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@{@string/live(viewModel.live)}"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/guessBt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/guess"
-        app:cornerRadius="8dp" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/wrongTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@{@string/wrong(viewModel.wrong)}"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/guessEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="@string/guess_et"
+            android:maxLength="1"
+            android:textSize="20sp"
+            tools:ignore="Autofill,TextFields" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/guessBt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/guess"
+            app:cornerRadius="8dp" />
+    </LinearLayout>
+</layout>

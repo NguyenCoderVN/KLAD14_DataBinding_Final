@@ -25,21 +25,12 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         _binding = FragmentGameBinding.inflate(
             inflater, container, false
         )
-        val view = binding.root        
-        
+        val view = binding.root
+
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
         viewModel.updateDisplay()
-        
-        viewModel.display.observe(viewLifecycleOwner) { display ->
-            binding.displayTv.text = display
-        }
-
-        viewModel.live.observe(viewLifecycleOwner) { live ->
-            binding.liveTv.text = getString(R.string.live, live.toString())
-        }
-
-        viewModel.wrong.observe(viewLifecycleOwner) { wrong ->
-            binding.wrongTv.text = getString(R.string.wrong, wrong)
-        }
 
         viewModel.win.observe(viewLifecycleOwner) {
             if (it != "") {
@@ -62,7 +53,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         binding.apply {
             guessEt.filters = guessEt.filters + InputFilter.AllCaps()
             guessBt.setOnClickListener {
-                viewModel.checkGuessWord(guessEt.text.toString())
+                viewModel!!.checkGuessWord(guessEt.text.toString())
                 guessEt.text = null
             }
         }
