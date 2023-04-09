@@ -1,4 +1,4 @@
-package com.nguyencodervn.klad13_livedata
+package com.nguyencodervn.klad14_databinding
 
 import android.os.Bundle
 import android.util.Log

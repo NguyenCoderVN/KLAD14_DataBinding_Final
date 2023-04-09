@@ -1,4 +1,4 @@
-package com.nguyencodervn.klad13_livedata
+package com.nguyencodervn.klad14_databinding
 
 import android.os.Bundle
 import android.view.Menu
@@ -10,7 +10,7 @@ import androidx.core.os.LocaleListCompat
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.badge.BadgeUtils
 import com.google.android.material.badge.ExperimentalBadgeUtils
-import com.nguyencodervn.klad13_livedata.databinding.ActivityMainBinding
+import com.nguyencodervn.klad14_databinding.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

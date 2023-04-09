@@ -1,4 +1,4 @@
-package com.nguyencodervn.klad13_livedata
+package com.nguyencodervn.klad14_databinding
 
 import android.os.Bundle
 import android.text.InputFilter
@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.nguyencodervn.klad13_livedata.databinding.FragmentGameBinding
+import com.nguyencodervn.klad14_databinding.databinding.FragmentGameBinding
 
 class GameFragment : Fragment(R.layout.fragment_game) {
     private var _binding: FragmentGameBinding? = null
